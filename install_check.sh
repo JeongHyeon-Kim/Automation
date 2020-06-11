@@ -5,6 +5,7 @@ success="Complete"
 already="already installed"
 nopackage="No Package"
 nopackage2="No package"
+obsolete="obsoleted"
 
 while read line; do
         install_message=$(yum install -y $line 2>&1)
@@ -13,7 +14,11 @@ while read line; do
         elif [[ $install_message =~ $protected ]]; then
                 echo "Install,$line,Protected Package,$(rpm -qa | wc -l)"
         elif [[ $install_message =~ $already ]]; then
-                echo "Install,$line,Already Installed,$(rpm -qa | wc -l)"
+                if [[ $install_message =~ $obselete ]]; then
+                        echo "Install,$line,Obsoleted,$(rpm -qa | wc -l)"
+                else
+                        echo "Install,$line,Already Installed,$(rpm -qa | wc -l)"
+                fi
         elif [[ $install_message =~ $nopackage ]] || [[ $install_message =~ $nopackage2 ]]; then
                 echo "Install,$line,No Package,$(rpm -qa | wc -l)"
         else
