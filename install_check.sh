@@ -14,7 +14,7 @@ while read line; do
         elif [[ $install_message =~ $protected ]]; then
                 echo "Install,$line,Protected Package,$(rpm -qa | wc -l)"
         elif [[ $install_message =~ $already ]]; then
-                if [[ $install_message =~ $obselete ]]; then
+                if [[ $install_message =~ $obsolete ]]; then
                         echo "Install,$line,Obsoleted,$(rpm -qa | wc -l)"
                 else
                         echo "Install,$line,Already Installed,$(rpm -qa | wc -l)"
