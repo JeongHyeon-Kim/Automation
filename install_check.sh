@@ -23,7 +23,7 @@ while read line; do
         elif [[ $install_message =~ $noavailable ]]; then
                 echo "Install,$line,No Available,$(rpm -qa | wc -l)"
         elif [[ $install_message =~ $conflict ]]; then
-                echo "Install,$line,Confilcting Requests,$(rpm -qa | wc -l)"
+                echo "Install,$line,Conflicting Requests,$(rpm -qa | wc -l)"
         elif [[ $install_message =~ $protected ]]; then
                 echo "Install,$line,Protected Package,$(rpm -qa | wc -l)"
         elif [[ $install_message =~ $success ]]; then
