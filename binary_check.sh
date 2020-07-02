@@ -22,7 +22,7 @@ while read line; do
         	if [[ $status_message =~ $options ]]; then
 			echo $line": help exist"
 		else
-			echo $line": help non-exsit"
+			echo $line": help non-exist"
 		fi	
 	else
 		echo $line"has in exception case"
