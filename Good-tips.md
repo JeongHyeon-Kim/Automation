@@ -6,5 +6,5 @@ dnf history
 dnf history rollback {history id of wanting to go back}
 
 # Extract file list only & Extract file name only
-ls -l | grep -v ^d  > {file name for saving list}
+ls -l | grep -v ^d  > {file name for saving list}  
 cut -c 46- {file name for saving list}
