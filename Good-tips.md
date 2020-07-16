@@ -1,8 +1,11 @@
 # Installation process history inquiry  
 dnf history
 
-# Installation rollback  
+# Rollback action (removing history)
 dnf history rollback {history id of wanting to go back}
+
+# Undo action (registering history)
+dnf history undo {history id of wanting to undo}
 
 # Extract file list only & Extract file name only
 ls -l | grep -v ^d  > {file name for saving list}  
