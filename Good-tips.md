@@ -7,7 +7,7 @@ dnf history rollback {history id of wanting to go back}
 # Undo action (registering history)
 dnf history undo {history id of wanting to undo}
 
-# Undo last action (with out id)
+# Undo last action (without id)
 dnf history undo last
 
 # Extract file list only & Extract file name only
