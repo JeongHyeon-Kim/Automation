@@ -7,6 +7,9 @@ dnf history rollback {history id of wanting to go back}
 # Undo action (registering history)
 dnf history undo {history id of wanting to undo}
 
+# Undo last action (with out id)
+dnf history undo last
+
 # Extract file list only & Extract file name only
 ls -l | grep -v ^d  > {file name for saving list}  
 cut -c 46- {file name for saving list}
