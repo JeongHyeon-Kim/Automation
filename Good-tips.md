@@ -19,3 +19,12 @@ mv /var/lib/dnf/history.sqlite history.sqlite_backup
 
 # Clear dnf history
 rm -rf /var/lib/dnf/history.sqlite
+
+# show info of module
+dnf module info {mod_name}
+
+# show module list
+dnf module list
+
+# enable module
+dnf module enable {mod_name}
