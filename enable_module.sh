@@ -2,5 +2,5 @@
 file=$1
 
 while read line; do
-        echo $(dnf module enable -y $line)
+        dnf module enable -y $line
 done < $file
