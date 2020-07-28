@@ -28,3 +28,6 @@ dnf module list
 
 # enable module
 dnf module enable {mod_name}
+
+# download iso file from web (reduce integrity problem)
+wget {URL}
