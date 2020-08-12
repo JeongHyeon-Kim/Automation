@@ -31,3 +31,8 @@ dnf module enable {mod_name}
 
 # download iso file from web (reduce integrity problem)
 wget {URL}
+
+# provide list of updateable pacakges
+dnf check-update
+ex)
+![image](https://user-images.githubusercontent.com/24868649/89974707-bf42f000-dc9e-11ea-8422-24b48a716fbe.png)
