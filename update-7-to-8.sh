@@ -59,5 +59,5 @@ dnf --releasever=8 --allowerasing --setopt=deltarpm=false -y distro-sync
 echo "18. kernel-core 설치"
 dnf install -y kernel-core
 
-echo "19. groupinstall 진행"
+echo "19. groupupdate 진행"
 dnf groupupdate -y "Core" "Minimal Install"
