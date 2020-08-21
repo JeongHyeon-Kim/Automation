@@ -3,32 +3,6 @@ file=$1
 inactive="Active: inactive"
 active="Active: active"
 
-:<<END
-function my_function(){
-	systemctl start ${line#/usr/lib/systemd/system/}
-	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-	if [[ $status_message =~ $inactive ]]; then
-		echo $line",inactive start failed"
-	elif [[ $status_message =~ $active ]]; then
-		echo $line",inactive start success"
-	else
-		echo $line",Exception"
-	fi
-}
-
-function my_function2(){
-	systemctl stop ${line#/usr/lib/systemd/system/}
-	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-	if [[ $status_message =~ $inactive ]]; then
-		echo $line",inactive start failed"
-	elif [[ $status_message =~ $active ]]; then
-		echo $line",inactive start success"
-	else
-		echo $line",Exception"
-	fi
-}
-END
-
 while read line; do
 	sleep 1
         status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
