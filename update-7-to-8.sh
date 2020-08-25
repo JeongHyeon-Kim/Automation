@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "버전 업데이트 (CentOS 7.5, 7.6 확인)"
+echo "버전 업데이트 (CentOS 7.5, 7.6, 7.8 확인)"
 echo "1. 빠른 미러 서버를 사용하기 위해 설치"
 yum install -y yum-plugin-fastestmirror
 
