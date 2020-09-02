@@ -33,11 +33,11 @@ dnf module enable {mod_name}
 wget {URL}
 
 # provide list of updateable pacakges
-dnf check-update
-ex)
+dnf check-update  
+ex)  
 ![image](https://user-images.githubusercontent.com/24868649/89974707-bf42f000-dc9e-11ea-8422-24b48a716fbe.png)
 
 # enabled or disabled repositories and add new repositories
-dnf config-manager --enable {repo_name}
-dnf config-manager --disable {repo_name}
+dnf config-manager --enable {repo_name}  
+dnf config-manager --disable {repo_name}  
 dnf config-manager --add-repo {baseURL_of_repo}
