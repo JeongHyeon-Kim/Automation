@@ -29,4 +29,4 @@ systemctl start libvirtd.service
 systemctl enable libvirtd.service
 
 echo "5. KVM 상태 확인"
-systemctl status libvirtd.servicee
+systemctl status libvirtd.service
