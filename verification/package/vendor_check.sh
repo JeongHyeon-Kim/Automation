@@ -3,7 +3,8 @@
 file=$1
 
 while read line; do
-        echo $(rpm -qa --queryformat '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH};%{BUILDHOST};%{VENDOR};%{GROUP};%{SUMMARY}\n' $line)
+        # echo $(rpm -qa --queryformat '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH};%{BUILDHOST};%{VENDOR};%{GROUP};%{SUMMARY}\n' $line)
+        echo $(rpm -qa --queryformat '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH};%{BUILDHOST};%{VENDOR};%{PACKAGER}\n' $line)
 done < $file
 
 # 이 때의 $line은 순수한 패키지 이름만 넣어주기(ex. acl(O), acl-2.2.51-14.el7.x86_64(X))
