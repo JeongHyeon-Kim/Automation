@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "1. cockpit 설치"
-dnf install -y cockpit
+dnf install -y cockpit cockpit-machines
 
 echo "2. cockpit 사용 설정"
 systemctl enable --now cockpit.socket
