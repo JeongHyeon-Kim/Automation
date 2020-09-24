@@ -41,3 +41,9 @@ ex)
 dnf config-manager --enable {repo_name}  
 dnf config-manager --disable {repo_name}  
 dnf config-manager --add-repo {baseURL_of_repo}
+
+# Print the number of included strings (in vi editor)
+:%s/module//n
+
+# Delete line containing string (in vi editor)
+:%g/module/d
