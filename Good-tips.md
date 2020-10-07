@@ -47,3 +47,10 @@ dnf config-manager --add-repo {baseURL_of_repo}
 
 # Delete line containing string (in vi editor)
 :%g/module/d
+
+# Substitute string (in vi editor)
+:%s/(finding_pattern)/(changing_pattern)/(option)
+ex) :%s/"//g
+
+# Substitute string by line (in vi editor)
+:(start_line),(end_line)s/(finding_pattern)/(changing_pattern)/(option)
