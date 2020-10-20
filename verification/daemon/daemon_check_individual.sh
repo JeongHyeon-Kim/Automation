@@ -4,6 +4,7 @@ inactive="Active: inactive"
 active="Active: active"
 pass_num=2
 
+systemctl daemon-reload
 while read line; do
 	success_count=0
 	fail_count=0
