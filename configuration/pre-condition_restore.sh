@@ -41,6 +41,10 @@ rm -rf /lib/dracut/hooks/pre-pivot
 rm -rf /lib/dracut/hooks/pre-trigger
 rm -rf /lib/dracut/hooks/pre-udev
 rm -rf /etc/sysconfig/modules
+rm -rf /lib/module-load.d
 
 echo "5. 기본 권한 복구"
 chmod 644 /etc/rc.d/rc.local
+
+echo "6. 패키지 제거"
+dnf remove -y quota

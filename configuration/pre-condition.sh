@@ -41,6 +41,7 @@ touch /boot/grub2/grubenv.new
 touch /run/plymouth/pid
 touch /etc/initrd-release
 touch /run/user/1
+touch /lib/module-load.d
 
 echo "4. 폴더 및 하위 파일 존재"
 mkdir -p /lib/dracut/hooks/mount
@@ -60,6 +61,9 @@ touch /lib/dracut/hooks/pre-udev/test
 
 mkdir -p /etc/sysconfig/modules
 touch  /etc/sysconfig/modules/test
+
+mkdir -p /lib/modules-load.d
+touch /lib/modules-load.d/test
 
 echo "5. 실행 권한 부여"
 chmod +x /etc/rc.d/rc.local
