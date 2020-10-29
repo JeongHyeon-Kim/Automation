@@ -2,6 +2,7 @@
 file=$1
 inactive="Active: inactive"
 active="Active: active"
+failed="Active: failed"
 pass_num=2
 
 systemctl daemon-reload
@@ -11,13 +12,13 @@ while read line; do
 	exception_count=0
 	sleep 1
         status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-        if [[ $status_message =~ $inactive ]]; then
+        if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
                 #echo "inactive"
 		sleep 1
 		systemctl start ${line#/usr/lib/systemd/system/}
 		sleep 1
         	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-        	if [[ $status_message =~ $inactive ]]; then
+        	if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
 			#echo $line",inactive start failed"
 			fail_count=$((fail_count+1))
         	elif [[ $status_message =~ $active ]]; then
@@ -27,7 +28,7 @@ while read line; do
 			systemctl stop ${line#/usr/lib/systemd/system/}
 			sleep 1
 	        	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-			if [[ $status_message =~ $inactive ]]; then
+			if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
 				#echo "$line,active stop success"
 				success_count=$((success_count+1))
 	        	elif [[ $status_message =~ $active ]]; then
@@ -47,14 +48,14 @@ while read line; do
 		systemctl stop ${line#/usr/lib/systemd/system/}
 		sleep 1
         	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-        	if [[ $status_message =~ $inactive ]]; then
+        	if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
 			#echo "$line,active stop success"
 			success_count=$((success_count+1))
 			sleep 1
 			systemctl start ${line#/usr/lib/systemd/system/}
 			sleep 1
 			status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-        		if [[ $status_message =~ $inactive ]]; then
+        		if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
                 		#echo $line",inactive start failed"
 				fail_count=$((fail_count+1))
         		elif [[ $status_message =~ $active ]]; then
