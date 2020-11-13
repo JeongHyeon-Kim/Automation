@@ -25,6 +25,7 @@ while read line; do
   sed -i 's/#ConditionNeedsUpdate=|\/etc/ConditionNeedsUpdate=|\/etc/g' $line
   sed -i 's/#ConditionNeedsUpdate=|\/var/ConditionNeedsUpdate=|\/var/g' $line
 done < $file
+systemctl daemon-reload
 
 echo "3. 파일 제거"
 rm -rf /usr/lib/initrd-release
