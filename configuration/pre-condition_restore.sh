@@ -24,6 +24,8 @@ while read line; do
   sed -i 's/#ConditionNeedsUpdate=\/etc/ConditionNeedsUpdate=\/etc/g' $line
   sed -i 's/#ConditionNeedsUpdate=|\/etc/ConditionNeedsUpdate=|\/etc/g' $line
   sed -i 's/#ConditionNeedsUpdate=|\/var/ConditionNeedsUpdate=|\/var/g' $line
+  sed -i 's/#ConditionSecurity=!selinux/ConditionSecurity=!selinux/g' $line
+  sed -i 's/#ConditionPathExists=!\/run\/plymouth\/pid/ConditionPathExists=!\/run\/plymouth\/pid/g' $line
 done < $file
 systemctl daemon-reload
 
