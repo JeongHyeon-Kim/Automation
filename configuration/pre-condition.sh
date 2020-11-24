@@ -44,6 +44,7 @@ touch /run/plymouth/pid
 touch /etc/initrd-release
 touch /run/user/1
 touch /lib/module-load.d
+cp /usr/share/doc/teamd/example_configs/activebackup_arp_ping_1.conf /run/teamd/test.conf
 
 echo "4. 폴더 및 하위 파일 존재"
 mkdir -p /lib/dracut/hooks/mount

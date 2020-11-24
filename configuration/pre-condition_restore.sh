@@ -36,6 +36,7 @@ rm -rf /boot/grub2/grubenv.new #지우지 않아도 되긴 함
 rm -rf /run/plymouth/pid
 rm -rf /etc/initrd-release
 rm -rf /run/user/1
+rm -rf /run/teamd/test.conf
 
 echo "4. 폴더 및 하위 파일 제거"
 rm -rf /lib/dracut/hooks/mount
