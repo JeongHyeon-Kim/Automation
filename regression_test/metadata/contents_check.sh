@@ -1,8 +1,11 @@
 #!/bin/bash
 file=$1
 while read line; do
-	grep -rn "Warning : Intel Processor" $line
+	#grep -rn "Warning : Intel Processor" $line
+	grep -irn -E "Red Hat|RedHat|RHEL"
 done < $file
+
+# Can be used to search RHEL phrases
 
 ## This is script for searching words in directory group
 ## input file example ##
@@ -25,4 +28,3 @@ done < $file
 #/tmp
 #/usr
 #/var
-
