@@ -28,3 +28,23 @@ done < $file
 # /tmp
 # /usr
 # /var
+
+# trouble_shooting_example.txt
+# /bin
+# /boot
+# /dev
+# /etc
+# /firmware
+# /home
+# /lib
+# /lib64
+# /lost+found
+# /mnt
+# /modules
+# /root
+# /run
+# /sbin
+# /srv
+# /tmp
+# /usr
+# /var
