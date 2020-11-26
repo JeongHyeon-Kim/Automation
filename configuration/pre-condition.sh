@@ -25,6 +25,7 @@ while read line; do
   sed -i.bak 's/ConditionNeedsUpdate=|\/var/#ConditionNeedsUpdate=|\/var/g' $line
   sed -i.bak 's/ConditionSecurity=!selinux/#ConditionSecurity=!selinux/g' $line
   sed -i.bak 's/ConditionPathExists=!\/run\/plymouth\/pid/#ConditionPathExists=!\/run\/plymouth\/pid/g' $line
+  sed -i.bak 's/ConditionPathExists=!\/.autorelabel/#ConditionPathExists=!\/.autorelabel/g' $line
 
   type_message=$(grep $oneshot $line 2>&1)
   type_message2=$(grep $forking $line 2>&1)
