@@ -54,3 +54,8 @@ ex) :%s/"//g
 
 # Substitute string by line (in vi editor)
 :(start_line),(end_line)s/(finding_pattern)/(changing_pattern)/(option)
+
+# trouble shooting: remote: HTTP Basic: Access denied
+git config --system --unset credential.helper
+git config credential.helper store
+git pull
