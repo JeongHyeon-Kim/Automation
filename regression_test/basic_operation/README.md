@@ -1,0 +1,12 @@
+#### Basic behavior verification method
+- Basic structure: cmd_check.sh = man_check.sh + help_check.sh
+- man_check.sh
+  - Verification through man command
+  - First run with basic verification
+- help_check.sh
+  - Verification through help option
+  - Execute for failed commands in man_check
+  - Commands that fail in that part are classified as failure cases
+- cmd_check.sh
+  - Under normal circumstances, check with this script
+  - Use the previous two scripts to check individual commands
