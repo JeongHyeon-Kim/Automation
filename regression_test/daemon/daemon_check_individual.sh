@@ -1,10 +1,10 @@
 #!/bin/bash
 file=$1
-# 상태를 나타내는 비교 string
+# Comparison string indicating status
 inactive="Active: inactive"
 active="Active: active"
 failed="Active: failed"
-# 두번의 테스트를 진행하여 테스트 전의 상태로 복귀
+# Performs two tests and returns to the state before the test
 pass_num=2
 
 systemctl daemon-reload
@@ -13,7 +13,7 @@ while read line; do
 	fail_count=0
 	exception_count=0
 	status_message=$(systemctl status ${line#/usr/lib/systemd/system/} 2>&1)
-	# 정규식을 통해 상태 메시지에 문구 포함 여부 확인
+	# Checking whether a phrase is included in a status message using regular expressions
 	if [[ $status_message =~ $inactive ]] || [[ $status_message =~ $failed ]]; then
 		#echo "inactive -> active"
 		systemctl start ${line#/usr/lib/systemd/system/}
@@ -73,7 +73,7 @@ while read line; do
 		#echo $line",Exception"
 		exception_count=$((exception_count+1))
 	fi
-	# 2번의 테스트를 통해 모두 통과하면 PASS, 아니면 FAIL
+	# If passes through 2 tests, PASS, otherwise FAIL
 	if [ $success_count -eq $pass_num ]; then
 		echo $line",PASS"
 	else
