@@ -10,7 +10,7 @@ done < $file
 ## This is script for searching words in directory group
 ## input file example ##
 
-## example.txt
+# example.txt
 # /bin
 # /boot
 # /dev
