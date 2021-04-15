@@ -12,6 +12,7 @@ conflict="conflicting requests"
 
 while read line; do
         install_message=$(yum install -y $line 2>&1)
+        # install_message=$(yum install -y --allowerasing $line 2>&1)
         if [[ $install_message =~ $already ]]; then
                 if [[ $install_message =~ $obsolete ]]; then
                         echo "Install,$line,Obsoleted,$(rpm -qa | wc -l)"
@@ -31,4 +32,6 @@ while read line; do
         else
                 echo "Install,$line,Exception,$(rpm -qa | wc -l)"
         fi
+        # yum history undo last -y >> install_log.txt
+        # echo "==============================================" >> install_log.txt
 done < $file
